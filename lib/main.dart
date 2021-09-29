@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rive/rive.dart';
+//import 'package:rive/rive.dart';
 
 void main() => runApp(MyApp());
 
@@ -33,6 +33,20 @@ class Manga {
   }
 }
 
+class Home {
+  final String titleName;
+
+  Home(this.titleName);
+
+  static List<Home> getHome() {
+    List<Home> name = <Home>[];
+    name.add(Home(
+      "See My Favourite Manga",
+    ));
+    return name;
+  }
+}
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -41,20 +55,33 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: HomePage(title: 'Favourite Manga List'),
+      home: HomePage(),
     );
   }
 }
 
 class HomePage extends StatelessWidget {
-  HomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+  HomePage({Key? key}) : super(key: key);
+  final name = Home.getHome();
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("My Portfolio"),
+        centerTitle: true,
+      ),
+    );
+  }
+}
+
+class ListMangaPage extends StatelessWidget {
+  ListMangaPage({Key? key}) : super(key: key);
   final info = Manga.getMangas();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Manga List")),
+        appBar: AppBar(title: Text("Favourite Manga List")),
         body: ListView.builder(
           itemCount: info.length,
           itemBuilder: (context, index) {
@@ -70,7 +97,8 @@ class HomePage extends StatelessWidget {
               },
             );
           },
-        ));
+        )
+      );
   }
 }
 
@@ -91,8 +119,10 @@ class MangaPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Image.asset("assets/" + this.item.image,
-                    alignment: Alignment.center, ,),
+                Image.asset(
+                  "assets/" + this.item.image,
+                  alignment: Alignment.center,
+                ),
                 Expanded(
                     child: Container(
                         padding: EdgeInsets.all(5),
