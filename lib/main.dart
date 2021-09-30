@@ -33,20 +33,6 @@ class Manga {
   }
 }
 
-class Home {
-  final String titleName;
-
-  Home(this.titleName);
-
-  static List<Home> getHome() {
-    List<Home> name = <Home>[];
-    name.add(Home(
-      "See My Favourite Manga",
-    ));
-    return name;
-  }
-}
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -55,21 +41,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  HomePage({Key? key}) : super(key: key);
-  final name = Home.getHome();
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("My Portfolio"),
-        centerTitle: true,
-      ),
+      home: ListMangaPage(),
     );
   }
 }
