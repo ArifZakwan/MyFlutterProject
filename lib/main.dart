@@ -1,13 +1,159 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 //import 'package:rive/rive.dart';
 
 void main() => runApp(MyApp());
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
+  MyApp({Key? key}) : super(key: key);
+
+  Widget firstSection = Container(
+    padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        Column(children: [
+          CircleAvatar(
+            backgroundImage: AssetImage('assets/kimetsu_no_yaiba.jpg'),
+            radius: 40,
+          ),
+        ]),
+        Column(
+          children: [
+            Padding(padding: const EdgeInsets.fromLTRB(0, 0, 0, 0)),
+            Text(
+              '5',
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            Text(
+              'Posts',
+              style: TextStyle(color: Colors.white),
+            )
+          ],
+        ),
+        Column(
+          children: [
+            Padding(padding: const EdgeInsets.fromLTRB(0, 0, 0, 0)),
+            Text(
+              '5',
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            Text(
+              'Followers',
+              style: TextStyle(color: Colors.white),
+            )
+          ],
+        ),
+        Column(
+          children: [
+            Padding(padding: const EdgeInsets.fromLTRB(0, 0, 0, 0)),
+            Text(
+              '1726',
+              style: TextStyle(color: Colors.white, fontSize: 20),
+            ),
+            Text(
+              'Following',
+              style: TextStyle(color: Colors.white),
+            )
+          ],
+        ),
+      ],
+    ),
+  );
+
+  Widget secondSection = Container(
+      padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+      child: Row(
+        children: [
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text(
+              'AfZn',
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+            ),
+            Text(
+              'asgrdegr',
+              style: TextStyle(color: Colors.white),
+            ),
+            Text(
+              'asrghsdihogiughfghdfjgdyfjddh',
+              style: TextStyle(color: Colors.white),
+            ),
+          ]),
+        ],
+      ));
+
+  Widget thirdSection = Container(
+    padding: const EdgeInsets.fromLTRB(0, 5, 0, 5),
+    decoration: BoxDecoration(
+      border: Border.all(
+        color: Colors.grey,
+      ),
+      borderRadius: BorderRadius.circular(6),
+    ),
+    child: Center(
+      child: Text(
+        'Edit Profile',
+        style: TextStyle(color: Colors.white),
+      ),
+    ),
+  );
+
+  Widget fourthSection = Container(
+      padding: const EdgeInsets.fromLTRB(10, 10, 0, 10),
+      child: Row(
+        children: [
+          Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+            Text(
+              'Story Highlights',
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w700),
+            ),
+            Text(
+              'Keep your favourite stories on your profile',
+              style: TextStyle(color: Colors.white),
+            ),
+          ]),
+        ],
+      ));
+
+  Widget fifthSection = Container(
+    padding: const EdgeInsets.fromLTRB(10,10,0,0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Column(       
+          children: [
+            CircleAvatar(
+              backgroundImage: AssetImage('assets/shingeki_no_kyojin.jpg'),
+              radius: 30,
+            ),
+            Text(
+              'sgsdgsg',
+              style: TextStyle(color: Colors.white),
+            ),
+          ]
+        ),
+        Column(
+          children: [
+            CircleAvatar(
+              backgroundImage: AssetImage('assets/shingeki_no_kyojin.jpg'),
+              radius: 30,
+            ),
+            Text(
+              'sgsdgsg',
+              style: TextStyle(color: Colors.white),
+            ),
+          ]
+        ),
+      ]
+    ),
+  );
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MyFavourite Manga',
       home: Scaffold(
         backgroundColor: Colors.black,
         appBar: AppBar(
@@ -26,34 +172,13 @@ class MyApp extends StatelessWidget {
             )
           ],
         ),
-        body: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Column(
-              children: [ 
-                CircleAvatar(
-                backgroundImage: AssetImage('assets/kimetsu_no_yaiba.jpg'),
-                radius: 30,
-            ), ]
-            ),
-            Column(
-              children: [
-                Text('5', style: TextStyle(color: Colors.white, fontSize: 20),), 
-                Text('Posts', style: TextStyle(color: Colors.white),)
-              ],
-            ),
-            Column(
-              children: [
-                Text('5', style: TextStyle(color: Colors.white, fontSize: 20),), 
-                Text('Followers', style: TextStyle(color: Colors.white),)
-              ],
-            ),
-            Column(
-              children: [
-                Text('1726', style: TextStyle(color: Colors.white, fontSize: 20),), 
-                Text('Following', style: TextStyle(color: Colors.white),)
-              ],
-            ),
+        body: ListView(
+          children: [
+            firstSection,
+            secondSection,
+            thirdSection,
+            fourthSection,
+            fifthSection,
           ],
         ),
         bottomNavigationBar: BottomAppBar(
@@ -62,17 +187,17 @@ class MyApp extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Icon(
-                Icons.home_outlined, 
+                Icons.home_outlined,
                 color: Colors.white,
                 size: 30,
               ),
               Icon(
-                Icons.search, 
+                Icons.search,
                 color: Colors.white,
                 size: 30,
               ),
               Icon(
-                Icons.movie_outlined, 
+                Icons.movie_outlined,
                 color: Colors.white,
                 size: 30,
               ),
