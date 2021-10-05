@@ -119,12 +119,12 @@ class MyApp extends StatelessWidget {
       ));
 
   Widget fifthSection = Container(
-    padding: const EdgeInsets.fromLTRB(10,10,0,0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Column(       
-          children: [
+    padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+    child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
+      Row(children: [
+        Container(
+          padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+          child: Column(children: [
             CircleAvatar(
               backgroundImage: AssetImage('assets/shingeki_no_kyojin.jpg'),
               radius: 30,
@@ -133,10 +133,11 @@ class MyApp extends StatelessWidget {
               'sgsdgsg',
               style: TextStyle(color: Colors.white),
             ),
-          ]
+          ]),
         ),
-        Column(
-          children: [
+        Container(
+          padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+          child: Column(children: [
             CircleAvatar(
               backgroundImage: AssetImage('assets/shingeki_no_kyojin.jpg'),
               radius: 30,
@@ -145,11 +146,52 @@ class MyApp extends StatelessWidget {
               'sgsdgsg',
               style: TextStyle(color: Colors.white),
             ),
-          ]
+          ]),
         ),
-      ]
-    ),
+        Container(
+          padding: const EdgeInsets.fromLTRB(0, 0, 20, 0),
+          child: Column(children: [
+            CircleAvatar(
+              child: Icon(Icons.add_circle_outline),
+              backgroundColor: Colors.black,
+              radius: 30,
+            ),
+            Text(
+              'New',
+              style: TextStyle(color: Colors.white),
+            ),
+          ]),
+        ),
+      ]),
+    ]),
   );
+
+  Widget sixthSection = Container(
+      padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            width: 2,
+            color: Colors.grey,
+          ),
+        ),
+      ),
+      child: Row(
+        children: [
+          Expanded(
+            child: Icon(
+              Icons.grid_3x3_outlined,
+              color: Colors.white,
+            ),
+          ),
+          Expanded(
+            child: Icon(
+              Icons.person_outline,
+              color: Colors.white,
+            ),
+          ),
+        ],
+      ));
 
   @override
   Widget build(BuildContext context) {
@@ -179,6 +221,7 @@ class MyApp extends StatelessWidget {
             thirdSection,
             fourthSection,
             fifthSection,
+            sixthSection,
           ],
         ),
         bottomNavigationBar: BottomAppBar(
