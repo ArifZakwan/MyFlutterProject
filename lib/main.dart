@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         Column(children: [
           CircleAvatar(
             backgroundImage: AssetImage('assets/kimetsu_no_yaiba.jpg'),
-            radius: 60,
+            radius: 50,
           ),
         ]),
         Column(
